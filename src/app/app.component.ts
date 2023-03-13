@@ -7,7 +7,7 @@ import { ModuleLoaderService } from './services/module-loader.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Mind Thyself';
+  title = 'Wellness Watch';
   constructor(private moduleLoader: ModuleLoaderService) {
     this.moduleLoader.loadModule();
   }

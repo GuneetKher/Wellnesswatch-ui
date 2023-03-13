@@ -1,7 +1,78 @@
-<div class="container">
-    <div class="row">
+<div class="container h-100">
+    <div class="row h-100">
         <div class="col-6"></div>
         <div class="col-6">
+            <div class="row h-100 justify-content-center align-items-center">
+                <div class="col">
+                    <p-card [style]="{width: '360px'}" styleClass="p-card-shadow mx-auto">
+                        <p-tabView styleClass="tabview-custom">
+                            <p-tabPanel>
+                                <ng-template pTemplate = "header">
+                                    <i class="pi pi-user px-2"></i>
+                                    <span>Login</span>
+                                </ng-template>
+                                <!-- Login form content -->
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div class="p-fluid grid">
+                                            <div class="row">
+                                                <div class="field col-12 md:col-4">
+                                                    <span class="p-float-label mb-2">
+                                                        <input type="text" id="inputtext" pInputText [(ngModel)]="login_username"> 
+                                                        <label for="inputtext">Username</label>
+                                                    </span>
+                                                    <span class="p-float-label">
+                                                        <input type="text" id="inputtext" pInputText [(ngModel)]="login_password"> 
+                                                        <label for="inputtext">Password</label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ng-template pTemplate="footer">
+                                    <p-button styleClass="p-button-sm" label="Login" icon="pi pi-check"></p-button>
+                                </ng-template>
+                            </p-tabPanel>
+                            <p-tabPanel header="Header II">
+                                <ng-template pTemplate = "header">
+                                    <i class="pi pi-user-plus px-2"></i>
+                                    <span>Sign Up</span>
+                                </ng-template>
+                                <!-- Sign up content  -->
+                                <div class="row mb-4">
+                                    <div class="col">
+                                        <div class="p-fluid grid">
+                                            <div class="row">
+                                                <div class="field col-12 md:col-4">
+                                                    <span class="p-float-label mb-2">
+                                                        <input type="text" id="inputtext" pInputText [(ngModel)]="signup_username"> 
+                                                        <label for="inputtext">Username</label>
+                                                    </span>
+                                                    <span class="p-float-label mb-2">
+                                                        <input type="text" id="inputtext" pInputText [(ngModel)]="signup_password"> 
+                                                        <label for="inputtext">Password</label>
+                                                    </span>
+                                                    <span class="p-float-label">
+                                                        <input type="text" id="inputtext" pInputText [(ngModel)]="signup_email"> 
+                                                        <label for="inputtext">Email</label>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                </div>
+                                <ng-template pTemplate="footer">
+                                    <p-button styleClass="p-button-sm" label="Register" icon="pi pi-check"></p-button>
+                                </ng-template>
+                            </p-tabPanel>
+                        </p-tabView>
+                    </p-card>
+                </div>
+            </div>
         </div>
     </div>
 </div>

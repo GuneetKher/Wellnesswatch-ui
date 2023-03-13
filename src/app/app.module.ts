@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { LandingComponent } from './unauthenticated/views/landing/landing.component';
 import { NopageComponent } from './unauthenticated/views/nopage/nopage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { UnauthenticatedModule } from './unauthenticated/unauthenticated.module';
 import { AuthenticatedModule } from './authenticated/authenticated.module';
 

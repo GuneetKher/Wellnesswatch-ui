@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent {
+  login_username: any;
+  login_password: any;
+  signup_username: any;
+  signup_password: any;
+  signup_email: any;
+
+  constructor() {
+  }
+
+  
 
 }

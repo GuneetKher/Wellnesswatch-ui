@@ -4,7 +4,12 @@ import { UnauthenticatedRoutingModule } from './unauthenticated-routing.module';
 
 import { LandingComponent } from './views/landing/landing.component';
 import { NopageComponent } from './views/nopage/nopage.component';
-import { NbCardModule } from '@nebular/theme';
+
+import {CardModule} from 'primeng/card';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import {TabViewModule} from 'primeng/tabview';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,9 +18,13 @@ import { NbCardModule } from '@nebular/theme';
     NopageComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     UnauthenticatedRoutingModule,
-    NbCardModule,
+    CardModule,
+    ButtonModule,
+    InputTextModule,
+    TabViewModule
   ],
 })
 export class UnauthenticatedModule { }
