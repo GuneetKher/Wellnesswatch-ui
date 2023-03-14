@@ -17,13 +17,13 @@
                                         <div class="p-fluid grid">
                                             <div class="row">
                                                 <div class="field col-12 md:col-4">
-                                                    <span class="p-float-label mb-2">
-                                                        <input type="text" id="inputtext" pInputText [(ngModel)]="login_username"> 
-                                                        <label for="inputtext">Username</label>
+                                                    <span class="p-float-label mt-4 mb-4">
+                                                        <input type="text" id="login_username" pInputText [(ngModel)]="login_username"> 
+                                                        <label for="login_username">Username</label>
                                                     </span>
-                                                    <span class="p-float-label">
-                                                        <input type="text" id="inputtext" pInputText [(ngModel)]="login_password"> 
-                                                        <label for="inputtext">Password</label>
+                                                    <span class="p-float-label mb-4">
+                                                        <input type="password" pPassword id="login_password" [feedback]="false" [(ngModel)]="login_password"> 
+                                                        <label for="login_password">Password</label>
                                                     </span>
                                                 </div>
                                             </div>
@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                                 <ng-template pTemplate="footer">
-                                    <p-button styleClass="p-button-sm" label="Login" icon="pi pi-check"></p-button>
+                                    <p-button styleClass="p-button-sm" label="Login" icon="pi pi-check" (click)="login()"></p-button>
                                 </ng-template>
                             </p-tabPanel>
                             <p-tabPanel header="Header II">
@@ -45,17 +45,17 @@
                                         <div class="p-fluid grid">
                                             <div class="row">
                                                 <div class="field col-12 md:col-4">
-                                                    <span class="p-float-label mb-2">
-                                                        <input type="text" id="inputtext" pInputText [(ngModel)]="signup_username"> 
-                                                        <label for="inputtext">Username</label>
+                                                    <span class="p-float-label mt-4 mb-4">
+                                                        <input type="text" id="signup_username" pInputText [(ngModel)]="signup_username"> 
+                                                        <label for="signup_username">Username</label>
                                                     </span>
-                                                    <span class="p-float-label mb-2">
-                                                        <input type="text" id="inputtext" pInputText [(ngModel)]="signup_password"> 
-                                                        <label for="inputtext">Password</label>
+                                                    <span class="p-float-label mb-4">
+                                                        <input type="password" pPassword id="signup_password" [feedback]="false" [(ngModel)]="signup_password"> 
+                                                        <label for="signup_password">Password</label>
                                                     </span>
-                                                    <span class="p-float-label">
-                                                        <input type="text" id="inputtext" pInputText [(ngModel)]="signup_email"> 
-                                                        <label for="inputtext">Email</label>
+                                                    <span class="p-float-label mb-4">
+                                                        <input type="text" id="signup_email" pInputText [(ngModel)]="signup_email"> 
+                                                        <label for="signup_email">Email</label>
                                                     </span>
                                                 </div>
                                             </div>
@@ -66,7 +66,7 @@
 
                                 </div>
                                 <ng-template pTemplate="footer">
-                                    <p-button styleClass="p-button-sm" label="Register" icon="pi pi-check"></p-button>
+                                    <p-button styleClass="p-button-sm" label="Register" icon="pi pi-check" (onClick)="register()"></p-button>
                                 </ng-template>
                             </p-tabPanel>
                         </p-tabView>

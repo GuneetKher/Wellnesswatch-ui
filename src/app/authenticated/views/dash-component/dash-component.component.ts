@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-dash-component',
   templateUrl: './dash-component.component.html',
@@ -7,6 +6,6 @@ import { Component } from '@angular/core';
 })
 export class DashComponent {
   constructor(){
-    document.documentElement.style.setProperty('--background-image', '#f43f43');
+    document.documentElement.style.setProperty('--background-image', 'url(../../../../assets/bg2.png) no-repeat left center / contain');
   }
 }

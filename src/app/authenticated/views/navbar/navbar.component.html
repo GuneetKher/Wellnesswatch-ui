@@ -1,0 +1,15 @@
+<p-menubar class="nav-background" [model]="items">
+    <ng-template pTemplate="start">
+        <!-- <img src="../../../../assets/bg1.png" height="40" class="mr-2"> -->
+    </ng-template>
+    <ng-template pTemplate="end" >
+        <!-- <button pButton type="button" label="My Feed" class="p-button-text p-button-plain"></button>
+        <button pButton type="button" label="My Posts" class="p-button-text p-button-plain"></button> -->
+        <p-button pRipple styleClass="p-button-text" badgeClass="p-badge-danger"><i class="pi pi-bell mr-4 p-text-secondary" pBadge style="font-size: 1.8rem" [value]="'10+'" severity="danger"></i></p-button>
+        <span class="p-buttonset mx-2">
+            <button pButton pRipple icon="pi pi-user" class="p-button-raised p-button-rounded"></button>
+            <!-- <button pButton pRipple type="button" label="Messages" badge="8" icon="pi pi-bell" badgeClass="p-badge-danger" class="p-button-raised p-button-warning"></button> -->
+            <button pButton pRipple icon="pi pi-power-off" class="p-button-raised p-button-rounded p-button-danger" (click)="logout()"></button>
+        </span>
+    </ng-template>
+</p-menubar>
