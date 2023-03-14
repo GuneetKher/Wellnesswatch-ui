@@ -10,7 +10,7 @@ import { NavbarComponent } from './views/navbar/navbar.component';
 import { ButtonModule } from 'primeng/button';
 import {MenubarModule} from 'primeng/menubar';
 import {BadgeModule} from 'primeng/badge';
-
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import {BadgeModule} from 'primeng/badge';
     ButtonModule,
     MenubarModule,
     BadgeModule,
+    OverlayPanelModule,
     // NbThemeModule.forRoot({ name: 'default' }),
     // NbLayoutModule,
     // NbCardModule,
