@@ -1,0 +1,32 @@
+:host ::ng-deep .p-menubar {
+    background: #f8f9fa9f !important;
+    // margin-left: auto;
+}
+
+:host ::ng-deep .p-menuitem-link-active {
+    background-color: rgba(128, 128, 128, 0.3);
+    /* Change to your desired active background color */
+    color: #333;
+    /* Change to your desired active text color */
+}
+
+:host ::ng-deep .p-menuitem-link-active:hover {
+    background-color: rgba(128, 128, 128, 0.5) !important;
+    /* Change to your desired active background color */
+    color: #333;
+    /* Change to your desired active text color */
+}
+
+.menu-items-wrapper {
+    margin-left: auto;
+}
+
+:host ::ng-deep .p-menubar.p-component .p-menubar-start {
+    margin-left: auto !important;
+    align-self: center;
+}
+
+:host ::ng-deep .p-menubar.p-component .p-menubar-end {
+    margin-left: unset;
+    align-self: center;
+}

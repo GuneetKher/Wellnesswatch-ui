@@ -16,6 +16,7 @@ export class LandingComponent {
   signup_email: any;
 
   constructor(private session: SessionService, private authservice: AuthService) {
+    document.documentElement.style.setProperty('--background-image', 'url(../../../../assets/bg1.png) no-repeat left center / contain');
   }
 
   public login(){

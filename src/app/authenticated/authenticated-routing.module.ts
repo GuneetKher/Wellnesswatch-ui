@@ -5,7 +5,7 @@ import { DashComponent } from './views/dash-component/dash-component.component';
 
 const routes: Routes = [
   { path: '', component: DashComponent },
-  { path: 'feed', component:NopageComponent }
+  { path: 'myposts', component:NopageComponent }
 ];
 
 @NgModule({
