@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row h-100 mt-2">
         <div class="col-4">
-            <p-card header="Simple Card" [style]="{'width': '100%', 'margin-bottom': '2em'}">
+            <p-card subheader="Welcome to your safe space" [style]="{'width': '100%', 'margin-bottom': '2em'}">
                 <ng-template pTemplate="header" styleClass="d-flex justify-content-center align-items-center">
-                    <p-avatar label="P" styleClass="mr-2" size="xlarge"></p-avatar>
+                    <p-avatar [label]="username || ''" styleClass="mx-2 w-100" size="xlarge"></p-avatar>
                 </ng-template>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
                     quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
@@ -14,10 +14,17 @@
                 <!-- <ng-template pTemplate="header">
                     <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png">
                 </ng-template> -->
-                <span class="p-float-label">
-                    <textarea id="float-input" rows="5" [autoResize]="true" pInputTextarea style="width: 100%;"></textarea>
-                    <label for="float-input">Write here...</label>
-                </span>
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-10">
+                        <span class="p-float-label">
+                            <textarea id="float-input" rows="5" [autoResize]="true" pInputTextarea style="width: 100%;"></textarea>
+                            <label for="float-input">Write here...</label>
+                        </span>
+                    </div>
+                    <div class="col-2">
+                        <button pButton pRipple type="button" icon="pi pi-send" class="p-button-raised w-100"></button>
+                    </div>
+                </div>
             </p-card>
             <p-card header="Your feed" [style]="{'width': '100%'}">
                 <!-- <ng-template pTemplate="header">

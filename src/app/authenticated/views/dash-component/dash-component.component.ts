@@ -5,7 +5,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./dash-component.component.scss']
 })
 export class DashComponent {
+  public username;
   constructor(){
+    this.username = localStorage.getItem('name')
     document.documentElement.style.setProperty('--background-image', 'url(../../../../assets/bg2.png) no-repeat left center / contain');
   }
 }

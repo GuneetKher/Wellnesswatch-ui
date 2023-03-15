@@ -25,13 +25,15 @@
                                                         <input type="password" pPassword id="login_password" [feedback]="false" [(ngModel)]="login_password"> 
                                                         <label for="login_password">Password</label>
                                                     </span>
+                                                    <small *ngIf="error" id="username2-help" class="p-error block">Username or password incorrect.</small>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <ng-template pTemplate="footer">
-                                    <p-button styleClass="p-button-sm" label="Login" icon="pi pi-check" (click)="login()"></p-button>
+                                    <p-button *ngIf="!showSpin" styleClass="p-button-sm" label="Login" icon="pi pi-check" (click)="login()"></p-button>
+                                    <p-button *ngIf="showSpin" styleClass="p-button-sm" ><p-progressSpinner styleClass="custom-spinner" [style]="{width: '17px', height: '17px'}"></p-progressSpinner></p-button>
                                 </ng-template>
                             </p-tabPanel>
                             <p-tabPanel header="Header II">
@@ -57,6 +59,7 @@
                                                         <input type="text" id="signup_email" pInputText [(ngModel)]="signup_email"> 
                                                         <label for="signup_email">Email</label>
                                                     </span>
+                                                    <small *ngIf="error" id="username2-help" class="p-error block">Something went wrong.</small>
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +69,8 @@
 
                                 </div>
                                 <ng-template pTemplate="footer">
-                                    <p-button styleClass="p-button-sm" label="Register" icon="pi pi-check" (onClick)="register()"></p-button>
+                                    <p-button *ngIf="!showSpin" styleClass="p-button-sm" label="Register" icon="pi pi-check" (onClick)="register()"></p-button>
+                                    <p-button *ngIf="showSpin" styleClass="p-button-sm" ><p-progressSpinner styleClass="custom-spinner" [style]="{width: '17px', height: '17px'}"></p-progressSpinner></p-button>
                                 </ng-template>
                             </p-tabPanel>
                         </p-tabView>

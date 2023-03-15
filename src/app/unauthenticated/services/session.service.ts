@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SessionService {
+  public usertoken: string |undefined;
+
   private baseUrl = 'https://authservice-42pm2bswzq-uc.a.run.app';
   // private baseUrl = 'http://localhost:5288';
   
@@ -13,7 +15,8 @@ export class SessionService {
 
   private getHeaders(): HttpHeaders {
     let headers = new HttpHeaders();
-    const jwtToken = localStorage.getItem('Token');
+    // const jwtToken = localStorage.getItem('Token');
+    const jwtToken = this.usertoken!=undefined? this.usertoken : localStorage.getItem('Token');
   
     if (jwtToken) {
       headers = headers.set('Authorization', `Bearer ${jwtToken}`);

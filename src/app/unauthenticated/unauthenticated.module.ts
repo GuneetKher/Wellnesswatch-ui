@@ -12,6 +12,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {TabViewModule} from 'primeng/tabview';
 import { FormsModule } from '@angular/forms';
 import {PasswordModule} from 'primeng/password';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {PasswordModule} from 'primeng/password';
   ],
   imports: [
     FormsModule,
+    ProgressSpinnerModule,
     PasswordModule,
     HttpClientModule,
     CommonModule,
