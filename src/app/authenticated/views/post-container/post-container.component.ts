@@ -7,6 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class PostContainerComponent {
 @Input() posts: string[] | undefined;
+@Input() isChild: boolean | undefined;
 public  comment: string | undefined ;
 public loadingComment = false
 }
