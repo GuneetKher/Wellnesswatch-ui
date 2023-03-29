@@ -5,8 +5,7 @@
                 <ng-template pTemplate="header" styleClass="d-flex justify-content-center align-items-center">
                     <p-avatar [label]="username || ''" styleClass="mx-2 w-100" size="xlarge"></p-avatar>
                 </ng-template>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-                    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</p>
+                <p style="text-align: justify; text-justify: inter-word;">We're so glad you've joined our community. We understand that dealing with emotional and mental well-being can be tough, but we want you to know that you're not alone. This website is a place where you can share your thoughts and feelings anonymously, without fear of judgment. Whether you're looking for support, guidance, or just a place to vent, we're here for you.</p>
             </p-card>
         </div>
         <div class="col-8">
@@ -22,7 +21,7 @@
                         </span>
                     </div>
                     <div class="col-2">
-                        <button pButton pRipple type="button" icon="pi pi-send" class="p-button-raised w-100"></button>
+                        <button pButton pRipple type="button" icon="pi pi-send" class="p-button-raised w-100" [loading]="loadPost"></button>
                     </div>
                 </div>
             </p-card>
