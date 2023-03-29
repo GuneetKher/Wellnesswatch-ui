@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 export class SessionService {
   public usertoken: string |undefined;
 
-  private baseUrl = 'https://authservice-42pm2bswzq-uc.a.run.app';
+  // private baseUrl = 'https://authservice-42pm2bswzq-uc.a.run.app';
+  private baseUrl = 'https://wellnesswatch-b62qapbl.uc.gateway.dev';
   // private baseUrl = 'http://localhost:5288';
   
   constructor(private http: HttpClient) { }

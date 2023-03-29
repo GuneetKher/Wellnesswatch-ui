@@ -10,12 +10,14 @@ import { UserComponent } from './views/user/user.component';
 import { PostsComponent } from './views/posts/posts.component';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
+import { PostContainerComponent } from './views/post-container/post-container.component';
 
 @NgModule({
   declarations: [
     DashComponent,
     UserComponent,
     PostsComponent,
+    PostContainerComponent,
   ],
   imports: [
     CommonModule,
