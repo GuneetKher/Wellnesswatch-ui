@@ -32,8 +32,8 @@
                                     </div>
                                 </div>
                                 <ng-template pTemplate="footer">
-                                    <p-button *ngIf="!showSpin" styleClass="p-button-sm" label="Login" icon="pi pi-check" (click)="login()"></p-button>
-                                    <p-button *ngIf="showSpin" styleClass="p-button-sm" ><p-progressSpinner styleClass="custom-spinner" [style]="{width: '17px', height: '17px'}"></p-progressSpinner></p-button>
+                                    <p-button [loading]="showSpin" styleClass="p-button-sm" label="Login" icon="pi pi-check" (click)="login()"></p-button>
+                                    <!-- <p-button *ngIf="showSpin" styleClass="p-button-sm" ><p-progressSpinner styleClass="custom-spinner" [style]="{width: '17px', height: '17px'}"></p-progressSpinner></p-button> -->
                                 </ng-template>
                             </p-tabPanel>
                             <p-tabPanel header="Header II">
@@ -69,8 +69,8 @@
 
                                 </div>
                                 <ng-template pTemplate="footer">
-                                    <p-button *ngIf="!showSpin" styleClass="p-button-sm" label="Register" icon="pi pi-check" (onClick)="register()"></p-button>
-                                    <p-button *ngIf="showSpin" styleClass="p-button-sm" ><p-progressSpinner styleClass="custom-spinner" [style]="{width: '17px', height: '17px'}"></p-progressSpinner></p-button>
+                                    <p-button [loading]="showSpin" styleClass="p-button-sm" label="Register" icon="pi pi-check" (onClick)="register()"></p-button>
+                                    <!-- <p-button *ngIf="showSpin" styleClass="p-button-sm" ><p-progressSpinner styleClass="custom-spinner" [style]="{width: '17px', height: '17px'}"></p-progressSpinner></p-button> -->
                                 </ng-template>
                             </p-tabPanel>
                         </p-tabView>

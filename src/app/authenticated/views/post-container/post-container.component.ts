@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-post-container',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./post-container.component.scss']
 })
 export class PostContainerComponent {
-
+@Input() posts: string[] | undefined;
+public  comment: string | undefined ;
+public loadingComment = false
 }

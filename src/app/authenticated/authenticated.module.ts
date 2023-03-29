@@ -11,6 +11,9 @@ import { PostsComponent } from './views/posts/posts.component';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import { PostContainerComponent } from './views/post-container/post-container.component';
+import { AccordionModule } from 'primeng/accordion';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import { PostContainerComponent } from './views/post-container/post-container.co
     PostContainerComponent,
   ],
   imports: [
+    FormsModule,
     CommonModule,
     ScrollPanelModule,
     InputTextareaModule,
+    InputTextModule,
     ButtonModule,
     AvatarModule,
     CardModule,
-    AuthenticatedRoutingModule
+    AuthenticatedRoutingModule,
+    AccordionModule
   ]
 })
 export class AuthenticatedModule { 
