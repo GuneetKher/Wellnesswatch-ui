@@ -11,6 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import {MenubarModule} from 'primeng/menubar';
 import {BadgeModule} from 'primeng/badge';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {OverlayPanelModule} from 'primeng/overlaypanel';
     // NbLayoutModule,
     // NbCardModule,
     // NbEvaIconsModule,
+    CardModule,
     UnauthenticatedModule,
     AuthenticatedModule
   ],

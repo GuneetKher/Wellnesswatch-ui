@@ -14,6 +14,7 @@ import { PostContainerComponent } from './views/post-container/post-container.co
 import { AccordionModule } from 'primeng/accordion';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { ModComponent } from './views/mod/mod.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     UserComponent,
     PostsComponent,
     PostContainerComponent,
+    ModComponent,
   ],
   imports: [
     FormsModule,

@@ -1,0 +1,14 @@
+runtime: nodejs16
+
+instance_class: F2
+
+env_variables: 
+  BUCKET_NAME: "dcn-wellnesswatch-serverful_cloudbuild"
+
+handlers:
+- url: /
+  static_files: sful/index.html
+  upload: sful/index.html
+
+- url: /
+  static_dir: sful/

@@ -16,12 +16,12 @@
                 <div class="row h-100 justify-content-center align-items-center">
                     <div class="col-10">
                         <span class="p-float-label">
-                            <textarea id="float-input" rows="5" [autoResize]="true" pInputTextarea style="width: 100%;"></textarea>
+                            <textarea id="float-input" rows="5" [autoResize]="true" pInputTextarea style="width: 100%;" [(ngModel)]="Post_Content"></textarea>
                             <label for="float-input">Write here...</label>
                         </span>
                     </div>
                     <div class="col-2">
-                        <button pButton pRipple type="button" icon="pi pi-send" class="p-button-raised w-100" [loading]="loadPost"></button>
+                        <button pButton pRipple type="button" icon="pi pi-send" class="p-button-raised w-100" [loading]="loadPost" (click)="makepost()"></button>
                     </div>
                 </div>
             </p-card>
@@ -30,7 +30,7 @@
                     <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png">
                 </ng-template> -->
                 <p-scrollPanel [style]="{width: '100%', height: '300px'}">
-                    <app-post-container [posts]="posts"></app-post-container>
+                    <app-post-container [posts]="posts" [parent]="undefined"></app-post-container>
                 </p-scrollPanel>
             </p-card>
         </div>

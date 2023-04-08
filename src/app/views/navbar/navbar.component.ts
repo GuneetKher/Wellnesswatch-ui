@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { Notifications } from 'src/app/models/notifModel';
 import { AuthService } from 'src/app/services/auth-service.service';
+import { SessionService } from 'src/app/unauthenticated/services/session.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +11,11 @@ import { AuthService } from 'src/app/services/auth-service.service';
 })
 export class NavbarComponent {
   items: MenuItem[];
+  notifications_num ="";
+  notifications: Notifications[] | undefined;
 
-
-  constructor(private authservice: AuthService) {
-
+  constructor(private authservice: AuthService,private session:SessionService) {
+      this.get_notifs();
       this.items = [
           {
               label:'My Feed',
@@ -104,11 +107,47 @@ export class NavbarComponent {
         //       icon:'pi pi-fw pi-power-off'
         //   }
       ];
+      if(localStorage.getItem('role')=="Admin"){
+        this.items.unshift(
+          {
+            label:'Mod',
+            icon:'pi pi-fw pi-cog',
+            routerLink: ['/mod'],
+            routerLinkActiveOptions: {
+              exact: true
+            },
+            style: {'margin-left':'auto'}
+        }
+        )
+      }
   }
 
   public logout(){
     localStorage.removeItem("Token");
     this.authservice.logout()
+  }
+
+  private get_notifs(){
+    this.session.get("Notifications/User/"+localStorage.getItem('nameidentifier')).subscribe({
+      next:response=>{
+        this.notifications = response
+        this.notifications_num = this.notifications?.length != undefined ? this.notifications?.length.toString() : "";
+        console.log(this.notifications_num)
+      },
+      error:err=>{
+      }
+    })
+  }
+
+  public mark_notif(id:string){
+    this.session.get("Notifications/"+id).subscribe({
+      next:response=>{
+        document.getElementById('notif'+id)?.classList.replace('unread','read')
+      },
+      error:err=>{
+
+      }
+    })
   }
 
 }

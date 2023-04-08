@@ -5,12 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SessionService {
+export class LoggedinService {
   public usertoken: string |undefined;
 
-  // private baseUrl = 'https://authservice-42pm2bswzq-uc.a.run.app';
-  private baseUrl = 'https://wellnesswatch-b62qapbl.uc.gateway.dev'; // serverless
-  // private baseUrl = 'https://wellnesswatch-aema1bi7.uc.gateway.dev'; // serverful
+  private baseUrl = 'https://postservice-42pm2bswzq-uc.a.run.app';
+  // private baseUrl = 'https://wellnesswatch-b62qapbl.uc.gateway.dev';
   // private baseUrl = 'http://localhost:5288';
   
   constructor(private http: HttpClient) { }

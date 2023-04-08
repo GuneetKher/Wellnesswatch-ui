@@ -1,33 +1,62 @@
 <p-card styleClass="mt-2 internal-posts" *ngFor="let post of posts">
-    <p class="m-2">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-        quas!
-    </p>
+    <div class="row">
+        <div class="col-11">
+            <span style="font-weight: 700; font-size:large">
+                {{post.authorName}}
+            </span>
+            <span style="font-weight: 300;">
+                {{post.timestamp | date}}
+            </span>
+        </div>
+        <ng-container *ngIf="parent === 'mod'; else nonModTemplate">
+            <ng-container *ngTemplateOutlet="modTemplate"></ng-container>
+          </ng-container>
+        <ng-template #modTemplate>
+            <div class="col-1">
+                <p-button icon="pi pi-times" styleClass="p-button-rounded p-button-secondary p-button-sm w-100" [loading]="loadingMod" (click)="mark_modded(post.id)" [disabled]="post.isMod==true"></p-button>
+            </div>
+          </ng-template>
+          
+          <ng-template #nonModTemplate>
+            <div class="col-1" *ngIf="localStore?.getItem('nameidentifier') != post.author">
+                <p-button icon="pi pi-flag" styleClass="p-button-rounded p-button-secondary p-button-sm w-100" [loading]="loadingFlag" (click)="mark_flagged(post)"></p-button>
+            </div>
+          </ng-template>
+    </div>
+    <!-- <div class="row">
+        <div class="col">
+            
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col py-3">
+            <span class="m-3 ">
+                {{post.text}}
+            </span>
+        </div>
+    </div>
 
-<p-accordion class="w-full" *ngIf="!isChild">
+<p-accordion class="w-full" *ngIf="!parent" (onOpen)="load_comments(post.id)" [(activeIndex)]="activeIndex[post.id]">
     <p-accordionTab>
         <ng-template pTemplate="header">
-            <div class="flex align-items-center">
+            <div class="flex align-items-center" >
                 <i class="pi pi-comments mr-2 pr-2"></i>
                 <span class="vertical-align-middle">View comments</span>
             </div>
         </ng-template>
         <ng-template pTemplate="content">
-            <!-- <p class="m-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                laborum.
-            </p> -->
-            <app-post-container [posts]="['1','2','3','4']" [isChild]="true"></app-post-container>
+            <app-post-container [posts]="comments" [parent]="'post-container'"></app-post-container>
             <div class="row h-100 justify-content-center align-items-center">
                 <div class="col-10">
                     <textarea id="float-input" class="p-inputtext-sm mt-2" placeholder="Comment ..." rows="1" [autoResize]="true" pInputTextarea style="width: 100%;" [(ngModel)]="comment"></textarea>
                 </div>
                 <div class="col-2">
-                    <p-button icon="pi pi-send" styleClass="p-button-sm w-100" [loading]="loadingComment"></p-button>
+                    <p-button icon="pi pi-send" styleClass="p-button-sm w-100" [loading]="loadingComment" (click)="post_comment(post)"></p-button>
                 </div>
             </div>
         </ng-template>
     </p-accordionTab>
 </p-accordion>
 </p-card>
+
+
