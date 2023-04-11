@@ -8,9 +8,11 @@ import { SessionService } from 'src/app/unauthenticated/services/session.service
   styleUrls: ['./post-container.component.scss']
 })
 export class PostContainerComponent {
+
   @Input() posts: Post[];
   @Input() parent: string | undefined;
   @Output() commentsEmitter = new EventEmitter<Post[]>();
+  @Output() predEmitter = new EventEmitter<string>();
 
   public localStore = localStorage;
 
@@ -116,6 +118,12 @@ export class PostContainerComponent {
       }
     })
   }
+
+  get_preds(string: string) {
+    
+    this.predEmitter.emit(string);
+    console.log(string);
+}
 
 }
 

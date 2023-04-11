@@ -30,7 +30,19 @@
                     <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png">
                 </ng-template> -->
                 <p-scrollPanel [style]="{width: '100%', height: '300px'}">
-                    <app-post-container [posts]="posts" [parent]="undefined"></app-post-container>
+                    <ng-container *ngIf="posts.length; else skeletonLoader">
+                        <ng-container *ngTemplateOutlet="monitorTemplate"></ng-container>
+                    </ng-container>
+                    <ng-template #monitorTemplate>
+                        <app-post-container *ngIf="posts" [posts]="posts" [parent]="undefined"></app-post-container>
+                    </ng-template>
+                    <ng-template #skeletonLoader>
+                        <p-skeleton styleClass="mb-2"></p-skeleton>
+                        <p-skeleton width="10rem" styleClass="mb-2"></p-skeleton>
+                        <p-skeleton width="5rem" styleClass="mb-2"></p-skeleton>
+                        <p-skeleton height="2rem" styleClass="mb-2"></p-skeleton>
+                        <p-skeleton width="10rem" height="4rem"></p-skeleton>
+                    </ng-template>
                 </p-scrollPanel>
             </p-card>
         </div>

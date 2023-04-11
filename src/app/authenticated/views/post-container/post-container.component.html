@@ -18,10 +18,20 @@
           </ng-template>
           
           <ng-template #nonModTemplate>
-            <div class="col-1" *ngIf="localStore?.getItem('nameidentifier') != post.author">
-                <p-button icon="pi pi-flag" styleClass="p-button-rounded p-button-secondary p-button-sm w-100" [loading]="loadingFlag" (click)="mark_flagged(post)"></p-button>
-            </div>
+                <ng-container *ngIf="parent === 'monitor'; else userTemplate">
+                    <ng-container *ngTemplateOutlet="parentTemplate"></ng-container>
+                  </ng-container>
+                <ng-template #parentTemplate>
+                  <div class="col-1">
+                      <p-button icon="pi pi-search-plus" styleClass="p-button-rounded p-button-secondary p-button-sm w-100" [loading]="loadingMod" (click)="get_preds(post.text)"></p-button>
+                  </div>
+                </ng-template>
           </ng-template>
+          <ng-template #userTemplate>
+        <div class="col-1" *ngIf="localStore?.getItem('nameidentifier') != post.author">
+            <p-button icon="pi pi-flag" styleClass="p-button-rounded p-button-secondary p-button-sm w-100" [loading]="loadingFlag" (click)="mark_flagged(post)"></p-button>
+        </div>
+      </ng-template>
     </div>
     <!-- <div class="row">
         <div class="col">

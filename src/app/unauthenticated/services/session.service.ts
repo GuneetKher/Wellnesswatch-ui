@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SessionService {
+
   public usertoken: string |undefined;
 
   // private baseUrl = 'https://authservice-42pm2bswzq-uc.a.run.app';
@@ -80,6 +81,36 @@ export class SessionService {
       const headers = this.getHeaders();
       console.log('Headers:', headers);
       this.http.post(`${this.baseUrl}/${endpoint}`, data, { headers })
+        .subscribe({
+          next: response => {
+            observer.next(response);
+            observer.complete();
+          },
+          error: error => {
+            observer.error(error);
+          }
+        });
+    });
+  }
+
+  get_all_posts(endpoint: string) {
+    return new Observable(observer => {
+      this.http.get(`${'https://postservice-42pm2bswzq-uc.a.run.app'}/${endpoint}`)
+        .subscribe({
+          next: response => {
+            observer.next(response);
+            observer.complete();
+          },
+          error: error => {
+            observer.error(error);
+          }
+        });
+    });
+  }
+
+  public post_spec_pred(endpoint: string, data: any): Observable<any> {
+    return new Observable(observer => {
+      this.http.post(`${endpoint}`, data)
         .subscribe({
           next: response => {
             observer.next(response);

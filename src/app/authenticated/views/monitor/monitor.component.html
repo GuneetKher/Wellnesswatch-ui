@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="row h-100 mt-2">
+        <div class="col-4">
+            <p-card header="Posts" [style]="{'width': '100%', 'height':'80vh', 'margin-top': '2em'}">
+                <!-- <ng-template pTemplate="header">
+                    <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png">
+                </ng-template> -->
+                <p-scrollPanel [style]="{width: '100%', height: '60vh'}">
+                    <ng-container *ngIf="posts.length; else skeletonLoader">
+                        <ng-container *ngTemplateOutlet="monitorTemplate"></ng-container>
+                    </ng-container>
+                    <ng-template #monitorTemplate>
+                        <app-post-container *ngIf="posts" [posts]="posts" [parent]="'monitor'" (predEmitter)="show_preds($event)"></app-post-container>
+                    </ng-template>
+                    <ng-template #skeletonLoader>
+                        <p-skeleton styleClass="mb-2"></p-skeleton>
+                        <p-skeleton width="10rem" styleClass="mb-2"></p-skeleton>
+                        <p-skeleton width="5rem" styleClass="mb-2"></p-skeleton>
+                        <p-skeleton height="2rem" styleClass="mb-2"></p-skeleton>
+                        <p-skeleton width="10rem" height="4rem"></p-skeleton>
+                    </ng-template>
+                </p-scrollPanel>
+            </p-card>
+        </div>
+        <div class="col-8">
+            <p-card header="Analysis" [style]="{'width': '100%', 'height':'80vh', 'margin-top': '2em','padding':0}">
+                <div class="row h-100">
+                    <div class="col h-100">
+                        <div *ngIf="classifier_out" class="row h-30">
+                            <p-card subheader="Classification prediction" [style]="{'width': '100%', 'margin-top': '2em'}">
+                                <span>
+                                    <strong>Pertinent to mental health? </strong>{{classifier_out.probability_lax | number:'1.3-3'}} 
+                                </span> <br>
+                                <span>
+                                   <strong>Urgency score: </strong> {{classifier_out.probability_strict}}
+                                </span>
+                            </p-card>
+                        </div>
+                        <div *ngIf="(classifier_out==undefined) || (!is_mh)" class="row h-30">
+                            <div class="col">
+                                <p-skeleton styleClass="mb-2"></p-skeleton>
+                                <p-skeleton width="10rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton width="5rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton height="2rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton width="10rem" height="4rem"></p-skeleton>
+                            </div>
+                        </div>
+                        <div *ngIf="(topic_out) && (is_mh)" class="row h-30">
+                            <p-card subheader="Topic {{topic_out}}" [style]="{'width': '100%', 'margin-top': '2em'}">
+                                <p-scrollPanel [style]="{width: '100%', height: '150px'}">
+                                    <span>Topic Probabilities:
+                                        <ul>
+                                            <li *ngFor="let item of topic_list ">
+                                                {{item[0]}}: {{item[1]}}
+                                            </li>
+                                        </ul>
+                                    </span>
+                                </p-scrollPanel>
+                            </p-card>
+                        </div>
+                        <div *ngIf="(topic_out==undefined) || (!is_mh)" class="row h-30">
+                            <div class="col">
+                                <p-skeleton styleClass="mb-2"></p-skeleton>
+                                <p-skeleton width="10rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton width="5rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton height="2rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton width="10rem" height="4rem"></p-skeleton>
+                            </div>
+                        </div>
+                        
+                        <div *ngIf="(flair_out)  && (is_mh)"  class="row h-30">
+                            <p-card subheader="Category prediction" [style]="{'width': '100%', 'margin-top': '2em'}">
+                                <span>Assigned category:{{flair_out}}</span><br>
+                            </p-card>
+                        </div>
+                        <div *ngIf="(flair_out==undefined) || (!is_mh)" class="row h-30">
+                            <div class="col">
+                                <p-skeleton styleClass="mb-2"></p-skeleton>
+                                <p-skeleton width="10rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton width="5rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton height="2rem" styleClass="mb-2"></p-skeleton>
+                                <p-skeleton width="10rem" height="4rem"></p-skeleton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </p-card>
+        </div>
+    </div>
+</div>

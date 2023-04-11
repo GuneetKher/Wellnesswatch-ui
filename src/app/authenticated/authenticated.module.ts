@@ -15,6 +15,9 @@ import { AccordionModule } from 'primeng/accordion';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
 import { ModComponent } from './views/mod/mod.component';
+import { MonitorComponent } from './views/monitor/monitor.component';
+import { SkeletonModule } from 'primeng/skeleton';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { ModComponent } from './views/mod/mod.component';
     PostsComponent,
     PostContainerComponent,
     ModComponent,
+    MonitorComponent,
   ],
   imports: [
     FormsModule,
@@ -34,7 +38,8 @@ import { ModComponent } from './views/mod/mod.component';
     AvatarModule,
     CardModule,
     AuthenticatedRoutingModule,
-    AccordionModule
+    AccordionModule,
+    SkeletonModule
   ]
 })
 export class AuthenticatedModule { 

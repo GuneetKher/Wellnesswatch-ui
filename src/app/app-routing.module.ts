@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => AuthenticatedModule,
     canActivate: [AuthGuard]
-  }
+  },
 ];
 
 @NgModule({

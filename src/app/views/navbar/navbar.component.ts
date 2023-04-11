@@ -117,6 +117,15 @@ export class NavbarComponent {
               exact: true
             },
             style: {'margin-left':'auto'}
+        },
+        {
+          label:'Monitor',
+          icon:'pi pi-fw pi-search-plus',
+          routerLink: ['/monitor'],
+          routerLinkActiveOptions: {
+            exact: true
+          },
+          style: {'margin-left':'auto'}
         }
         )
       }
