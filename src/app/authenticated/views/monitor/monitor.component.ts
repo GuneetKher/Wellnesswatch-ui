@@ -17,7 +17,7 @@ export class MonitorComponent {
   
   public posts: any;
   topic_list: any;
-  is_mh: number | undefined;
+  is_mh: boolean | undefined;
   constructor(private service:SessionService){
     this.posts = []
     this.getFeed();
@@ -40,7 +40,7 @@ export class MonitorComponent {
     this.service.post_spec_pred('https://ds-6jwegwyhkq-uc.a.run.app/predict',{"post":string}).subscribe({
       next: response=>{
         this.classifier_out = response
-        this.is_mh = Math.round(this.classifier_out['probability_lax'])
+        this.is_mh = Boolean(Math.round(this.classifier_out['probability_lax']))
       },
       error:err=>{
 

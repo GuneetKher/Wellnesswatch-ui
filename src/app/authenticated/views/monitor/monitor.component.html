@@ -29,14 +29,14 @@
                         <div *ngIf="classifier_out" class="row h-30">
                             <p-card subheader="Classification prediction" [style]="{'width': '100%', 'margin-top': '2em'}">
                                 <span>
-                                    <strong>Pertinent to mental health? </strong>{{classifier_out.probability_lax | number:'1.3-3'}} 
+                                    <strong>Pertinent to mental health? </strong>{{is_mh}} ({{classifier_out.probability_lax | number:'1.3-3'}}) 
                                 </span> <br>
                                 <span>
-                                   <strong>Urgency score: </strong> {{classifier_out.probability_strict}}
+                                   <strong>Urgency score: </strong> {{classifier_out.probability_strict | number:'1.3-3'}}
                                 </span>
                             </p-card>
                         </div>
-                        <div *ngIf="(classifier_out==undefined) || (!is_mh)" class="row h-30">
+                        <div *ngIf="(classifier_out==undefined) && ((!is_mh) ||(is_mh==undefined))" class="row h-30">
                             <div class="col">
                                 <p-skeleton styleClass="mb-2"></p-skeleton>
                                 <p-skeleton width="10rem" styleClass="mb-2"></p-skeleton>
@@ -58,7 +58,7 @@
                                 </p-scrollPanel>
                             </p-card>
                         </div>
-                        <div *ngIf="(topic_out==undefined) || (!is_mh)" class="row h-30">
+                        <div *ngIf="(topic_out==undefined) && ((!is_mh) ||(is_mh==undefined))" class="row h-30">
                             <div class="col">
                                 <p-skeleton styleClass="mb-2"></p-skeleton>
                                 <p-skeleton width="10rem" styleClass="mb-2"></p-skeleton>
@@ -73,7 +73,7 @@
                                 <span>Assigned category:{{flair_out}}</span><br>
                             </p-card>
                         </div>
-                        <div *ngIf="(flair_out==undefined) || (!is_mh)" class="row h-30">
+                        <div *ngIf="(flair_out==undefined) && ((!is_mh) ||(is_mh==undefined))" class="row h-30">
                             <div class="col">
                                 <p-skeleton styleClass="mb-2"></p-skeleton>
                                 <p-skeleton width="10rem" styleClass="mb-2"></p-skeleton>
